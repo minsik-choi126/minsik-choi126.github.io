@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Minsik Choi</title>
+<meta name="description" content="Minsik Choi — Integrated B.S./M.S. student at Korea University working on efficient LLMs, model merging, and transformer optimization.">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" as="style" crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  :root {
+    --bg:     #ffffff;
+    --ink:    #111827;
+    --body:   #374151;
+    --muted:  #6b7280;
+    --faint:  #9ca3af;
+    --rule:   #e5e7eb;
+    --accent: #8c2f39;
+
+    --sans: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont,
+            system-ui, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    word-break: keep-all;
+  }
+
+  .wrap {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  a { color: inherit; text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 3px; }
+  a:hover { color: var(--accent); text-decoration-color: currentColor; }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+  /* ---------- profile ---------- */
+  .profile { display: flex; flex-direction: column; gap: 2rem; }
+
+  .profile img {
+    width: 160px;
+    height: 160px;
+    border-radius: 3px;
+    object-fit: cover;
+    background: var(--bg);
+    flex-shrink: 0;
+  }
+
+  .identity { display: flex; flex-direction: column; justify-content: center; gap: 0.75rem; }
+
+  h1 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    margin: 0;
+  }
+
+  h1 .ko { font-size: 0.6em; font-weight: 500; color: var(--faint); letter-spacing: 0; margin-left: 0.45rem; }
+
+  .bio { margin: 0; color: var(--body); }
+  .bio strong { color: var(--ink); font-weight: 600; }
+
+  .links { display: flex; flex-wrap: wrap; gap: 0.25rem 1.1rem; font-size: 0.95rem; }
+
+  /* ---------- sections ---------- */
+  section { display: flex; flex-direction: column; gap: 1.5rem; }
+
+  h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin: 0;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .legend { font-size: 0.78rem; color: var(--faint); margin: -0.75rem 0 -0.25rem; }
+
+  .group { font-size: 0.9rem; font-weight: 600; color: var(--muted); margin: 0.5rem 0 -0.5rem; }
+
+  /* ---------- publication entries ---------- */
+  .pubs { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 1.5rem; }
+
+  .pubs li { display: grid; grid-template-columns: 2.4rem 1fr; gap: 0 0.5rem; }
+  .pubs li > *:not(.pub-num) { grid-column: 2; }
+
+  .pub-num {
+    grid-column: 1;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--faint);
+    padding-top: 0.28rem;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .pub-title a { text-decoration: none; }
+  .pub-title a:hover { color: var(--accent); text-decoration: underline; text-decoration-color: currentColor; }
+
+  .pub-title { font-size: 1.05rem; font-weight: 600; line-height: 1.4; margin: 0; text-wrap: pretty; }
+
+  .meta { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin: 0.2rem 0 0; font-size: 0.88rem; color: var(--muted); }
+
+  .tag {
+    font-size: 0.72rem;
+    line-height: 1.5;
+    color: var(--muted);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 0 0.4rem;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  a.tag:hover { color: var(--ink); border-color: var(--ink); }
+
+  .authors { margin: 0.15rem 0 0; font-size: 0.9rem; color: var(--body); }
+  .authors .me { color: var(--ink); font-weight: 600; }
+
+  .note { margin: 0.25rem 0 0; font-size: 0.85rem; color: var(--muted); }
+
+  /* ---------- entry rows ---------- */
+  .rows { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 1.5rem; }
+
+  .row { display: grid; grid-template-columns: 1fr auto; gap: 0.15rem 1.5rem; align-items: baseline; }
+
+  .what { font-size: 1rem; font-weight: 600; margin: 0; }
+  .when { font-size: 0.85rem; color: var(--faint); font-variant-numeric: tabular-nums; white-space: nowrap; text-align: right; }
+  .where { grid-column: 1 / -1; margin: 0; font-size: 0.9rem; color: var(--muted); }
+  .detail { grid-column: 1 / -1; margin: 0.35rem 0 0; font-size: 0.92rem; color: var(--body); }
+
+  /* ---------- interests ---------- */
+  .interests { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.55rem; color: var(--body); }
+  .interests li { padding-left: 1rem; position: relative; }
+  .interests li::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0.72em;
+    width: 0.4rem; height: 1px;
+    background: var(--accent);
+  }
+
+  footer {
+    border-top: 1px solid var(--rule);
+    padding-top: 1.25rem;
+    font-size: 0.8rem;
+    color: var(--faint);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 1rem;
+    justify-content: space-between;
+  }
+
+  @media (min-width: 768px) {
+    .wrap { padding: 5rem 1.5rem; gap: 3.5rem; }
+    .profile { flex-direction: row; gap: 3rem; }
+    .profile img { width: 200px; height: 200px; }
+    h1 { font-size: 2.25rem; }
+    h2 { font-size: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="profile">
+    <img src="profile.jpg" alt="Minsik Choi" width="600" height="600">
+    <div class="identity">
+      <h1>Minsik Choi <span class="ko">최민식</span></h1>
+      <p class="bio">
+        Integrated B.S./M.S. student in Computer Science and Engineering at <strong>Korea University</strong>,
+        advised by Prof. Young Geun Kim. Currently an AI research engineering intern on the Algorithm team
+        at <strong>FuriosaAI</strong>. Previously at <strong>NAVER Cloud</strong>, where I worked on the
+        HyperCLOVA X models.
+      </p>
+      <p class="bio">
+        I work on making large language models cheaper to train and to run — model merging as a way to
+        post-train in parallel, and hardware-aware pruning as a way to fit transformers onto devices.
+      </p>
+      <nav class="links" aria-label="Contact and profiles">
+        <a href="mailto:mszzang2002@korea.ac.kr">Email</a>
+        <a href="cv_minsik_choi.pdf">CV</a>
+        <a href="https://scholar.google.com/citations?user=27JDAbcAAAAJ">Google Scholar</a>
+        <a href="https://github.com/minsik-choi126">GitHub</a>
+        <a href="https://www.linkedin.com/in/minsik-choi-727ba6337/">LinkedIn</a>
+      </nav>
+    </div>
+  </header>
+
+  <section aria-labelledby="interests-h">
+    <h2 id="interests-h">Research Interests</h2>
+    <ul class="interests">
+      <li>Hardware-aware transformer optimization for efficient on-device NLP inference</li>
+      <li>Model merging for scalable, distributed post-training of large language models</li>
+      <li>Geometric and spectral analysis of task interactions in weight space</li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="pubs-h">
+    <h2 id="pubs-h">Publications</h2>
+    <p class="legend">* Equal contribution &nbsp; † Corresponding author</p>
+
+    <ul class="pubs">
+      <li>
+        <span class="pub-num">[C1]</span>
+        <p class="pub-title"><a href="https://arxiv.org/abs/2609.00746">Text Capability Loss in Vision-Language Adaptation: An Attention-Sink Diagnosis</a></p>
+        <div class="meta"><span>EMNLP 2026</span><span class="tag">Main Conference</span></div>
+        <p class="authors"><span class="me">Minsik Choi</span>*, Geewook Kim*, Young Geun Kim</p>
+      </li>
+      <li>
+        <span class="pub-num">[C2]</span>
+        <p class="pub-title"><a href="https://arxiv.org/abs/2510.13832">Entropy Meets Importance: A Unified Head Importance–Entropy Score for Stable and Efficient Transformer Pruning</a></p>
+        <div class="meta"><span>EMNLP 2026</span><span class="tag">Findings</span></div>
+        <p class="authors"><span class="me">Minsik Choi</span>*, Hyegang Son*, Changhoon Kim, Young Geun Kim</p>
+        <p class="note">Extended version of the NeurIPS 2025 Workshop paper below.</p>
+      </li>
+      <li>
+        <span class="pub-num">[C3]</span>
+        <p class="pub-title"><a href="https://arxiv.org/abs/2606.01717">Decentralized Instruction Tuning: Conflict-Aware Splitting and Weight Merging</a></p>
+        <div class="meta">
+          <span>ICML 2026</span>
+          <span class="tag">Main Conference</span>
+          <a class="tag" href="https://clova.ai/tech-blog/%EC%B6%A9%EB%8F%8C%EC%9D%80-%EB%82%98%EB%88%84%EA%B3%A0-%EC%84%B1%EB%8A%A5%EC%9D%80-%ED%95%A9%EC%B9%98%EB%8B%A4-%ED%9A%A8%EC%9C%A8%EC%A0%81%EC%9D%B8-llm-post-training-%EC%A0%84%EB%9E%B5-merit">blog</a>
+        </div>
+        <p class="authors"><span class="me">Minsik Choi</span>*, Geewook Kim*†</p>
+      </li>
+    </ul>
+
+    <p class="group">Under Review</p>
+    <ul class="pubs">
+      <li>
+        <span class="pub-num">[R1]</span>
+        <p class="pub-title">Merging RLVR-Trained Experts via Policy-Shift-Guided Spectral Alignment</p>
+        <div class="meta"><span class="tag">Under review</span></div>
+        <p class="authors"><span class="me">Minsik Choi</span> (co-first author)</p>
+      </li>
+    </ul>
+
+    <p class="group">Workshops</p>
+    <ul class="pubs">
+      <li>
+        <span class="pub-num">[W1]</span>
+        <p class="pub-title"><a href="https://arxiv.org/abs/2510.13832">Entropy Meets Importance: A Unified Head Importance–Entropy Score for Stable and Efficient Transformer Pruning</a></p>
+        <div class="meta"><span>NeurIPS 2025 Workshop</span></div>
+        <p class="authors"><span class="me">Minsik Choi</span>, Hyegang Son, Changhoon Kim, Young Geun Kim</p>
+      </li>
+    </ul>
+
+    <p class="group">Technical Reports</p>
+    <ul class="pubs">
+      <li>
+        <span class="pub-num">[T1]</span>
+        <p class="pub-title"><a href="https://arxiv.org/abs/2601.01792">HyperCLOVA X 8B Omni Technical Report</a></p>
+        <div class="meta"><span>NAVER Cloud HyperCLOVA X Team, 2026</span></div>
+      </li>
+      <li>
+        <span class="pub-num">[T2]</span>
+        <p class="pub-title"><a href="https://arxiv.org/abs/2601.03286">HyperCLOVA X 32B Think Technical Report</a></p>
+        <div class="meta"><span>NAVER Cloud HyperCLOVA X Team, 2026</span></div>
+      </li>
+    </ul>
+
+    <p class="group">Writing</p>
+    <ul class="pubs">
+      <li>
+        <span class="pub-num">[B1]</span>
+        <p class="pub-title"><a href="https://clova.ai/tech-blog/%EC%B6%A9%EB%8F%8C%EC%9D%80-%EB%82%98%EB%88%84%EA%B3%A0-%EC%84%B1%EB%8A%A5%EC%9D%80-%ED%95%A9%EC%B9%98%EB%8B%A4-%ED%9A%A8%EC%9C%A8%EC%A0%81%EC%9D%B8-llm-post-training-%EC%A0%84%EB%9E%B5-merit">충돌은 나누고, 성능은 합치다: 효율적인 LLM Post-training 전략 MERIT</a></p>
+        <div class="meta"><span>NAVER CLOVA Tech Blog, Jul 2026</span></div>
+        <p class="authors"><span class="me">최민식</span>, 김기욱</p>
+      </li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="exp-h">
+    <h2 id="exp-h">Experience</h2>
+    <ul class="rows">
+      <li class="row">
+        <p class="what">AI Research Engineering Intern</p>
+        <span class="when">Sep 2026 – Present</span>
+        <p class="where">Algorithm Team, FuriosaAI, Seoul</p>
+      </li>
+      <li class="row">
+        <p class="what">Research &amp; Engineering Intern</p>
+        <span class="when">Sep 2025 – Mar 2026</span>
+        <p class="where">NAVER Cloud, Seongnam</p>
+        <p class="detail">
+          Worked on Korea's government-funded sovereign foundation model initiative
+          (독자 파운데이션 모델 프로젝트), building LLM training and evaluation pipelines
+          for instruction tuning and model merging.
+        </p>
+      </li>
+      <li class="row">
+        <p class="what">Undergraduate Research Intern</p>
+        <span class="when">Feb 2025 – Feb 2026</span>
+        <p class="where">Intelligent Computer Architecture &amp; Systems Lab, Korea University</p>
+        <p class="detail">Hardware-aware transformer optimization and structured pruning for on-device NLP inference.</p>
+      </li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="service-h">
+    <h2 id="service-h">Service</h2>
+    <ul class="rows">
+      <li class="row">
+        <p class="what">Reviewer</p>
+        <span class="when">2026</span>
+        <p class="where">OPT 2026: Optimization for Machine Learning, NeurIPS 2026 Workshop</p>
+      </li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="edu-h">
+    <h2 id="edu-h">Education</h2>
+    <ul class="rows">
+      <li class="row">
+        <p class="what">Integrated B.S./M.S., Computer Science and Engineering</p>
+        <span class="when">Sep 2025 – Aug 2027</span>
+        <p class="where">Korea University · Advisor: Prof. Young Geun Kim</p>
+      </li>
+      <li class="row">
+        <p class="what">Exchange Student, Computer Science</p>
+        <span class="when">Sep 2023 – Feb 2024</span>
+        <p class="where">University of Tübingen, Germany</p>
+      </li>
+      <li class="row">
+        <p class="what">B.S., Computer Science and Engineering</p>
+        <span class="when">Mar 2022 – Feb 2026</span>
+        <p class="where">Korea University · Admitted via the School of Interdisciplinary Studies · GPA 4.2 / 4.5</p>
+      </li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="awards-h">
+    <h2 id="awards-h">Scholarships</h2>
+    <ul class="rows">
+      <li class="row">
+        <p class="what">Graduate Merit-Based Scholarship</p>
+        <span class="when">Feb 2026 – Aug 2027</span>
+        <p class="where">Korea University · 50% tuition, all semesters</p>
+      </li>
+      <li class="row">
+        <p class="what">Academic Scholarship</p>
+        <span class="when">2025</span>
+        <p class="where">Woonhae Scholarship Foundation · full tuition for one academic year</p>
+      </li>
+    </ul>
+  </section>
+
+  <footer>
+    <span>Seoul, South Korea</span>
+    <span>Last updated September 2026</span>
+  </footer>
+
+</div>
+</body>
+</html>
