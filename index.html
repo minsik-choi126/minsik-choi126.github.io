@@ -134,6 +134,21 @@
 
   .note { margin: 0.25rem 0 0; font-size: 0.85rem; color: var(--muted); }
 
+  /* ---------- poster / teaser thumbnail ---------- */
+  .pub-main { display: flex; gap: 1rem; align-items: flex-start; }
+  .pub-text { flex: 1; min-width: 0; }
+
+  .teaser { flex-shrink: 0; display: block; line-height: 0; text-decoration: none; }
+  .teaser img {
+    display: block;
+    width: 92px;
+    height: auto;
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    background: #fff;
+  }
+  .teaser:hover img { border-color: var(--ink); }
+
   /* ---------- entry rows ---------- */
   .rows { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 1.5rem; }
 
@@ -186,6 +201,9 @@
     .pub-num { font-size: 0.75rem; padding-top: 0.24rem; }
     .pub-title { font-size: 0.98rem; }
     .pubs { gap: 1.2rem; }
+
+    .pub-main { flex-direction: column; gap: 0.6rem; }
+    .teaser img { width: 108px; }
 
     /* dates sit above the title instead of being squeezed beside it */
     .row { grid-template-columns: 1fr; gap: 0.1rem; }
@@ -249,9 +267,16 @@
       </li>
       <li>
         <span class="pub-num">[C2]</span>
-        <p class="pub-title"><a href="https://arxiv.org/abs/2609.00746">Text Capability Loss in Vision-Language Adaptation: An Attention-Sink Diagnosis</a></p>
-        <div class="meta"><span>EMNLP 2026</span><span class="tag">Main Conference</span></div>
-        <p class="authors"><span class="me">Minsik Choi</span>*, Geewook Kim*, Young Geun Kim</p>
+        <div class="pub-main">
+          <div class="pub-text">
+            <p class="pub-title"><a href="https://arxiv.org/abs/2609.00746">Text Capability Loss in Vision-Language Adaptation: An Attention-Sink Diagnosis</a></p>
+            <div class="meta"><span>EMNLP 2026</span><span class="tag">Main Conference</span><a class="tag" href="poster-emnlp2026-attention-sink.pdf">poster</a></div>
+            <p class="authors"><span class="me">Minsik Choi</span>*, Geewook Kim*, Young Geun Kim</p>
+          </div>
+          <a class="teaser" href="poster-emnlp2026-attention-sink.pdf" aria-label="Conference poster (PDF)">
+            <img src="poster-emnlp2026-attention-sink.jpg" alt="" loading="lazy" width="276" height="391">
+          </a>
+        </div>
       </li>
       <li>
         <span class="pub-num">[C3]</span>
