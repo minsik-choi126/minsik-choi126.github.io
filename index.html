@@ -35,6 +35,7 @@
     line-height: 1.65;
     -webkit-font-smoothing: antialiased;
     word-break: keep-all;
+    overflow-wrap: break-word;
   }
 
   .wrap {
@@ -165,21 +166,40 @@
     justify-content: space-between;
   }
 
+  /* ---------- phones ---------- */
+  @media (max-width: 767px) {
+    .wrap { padding: 2.5rem 1.25rem 3rem; gap: 2.25rem; }
+
+    .profile { gap: 1.25rem; }
+    .profile img { max-width: 128px; }
+
+    h1 { font-size: 1.625rem; }
+    h1 .ko { font-size: 0.56em; margin-left: 0.35rem; }
+
+    h2 { font-size: 1.125rem; }
+    section { gap: 1.1rem; }
+
+    .links { gap: 0.3rem 1rem; font-size: 0.92rem; }
+
+    /* the [C1] gutter costs too much width on a phone */
+    .pubs li { grid-template-columns: 1.9rem 1fr; gap: 0 0.35rem; }
+    .pub-num { font-size: 0.75rem; padding-top: 0.24rem; }
+    .pub-title { font-size: 0.98rem; }
+    .pubs { gap: 1.2rem; }
+
+    /* dates sit above the title instead of being squeezed beside it */
+    .row { grid-template-columns: 1fr; gap: 0.1rem; }
+    .when { order: -1; text-align: left; font-size: 0.78rem; }
+    .rows { gap: 1.2rem; }
+
+    footer { flex-direction: column; gap: 0.2rem; }
+  }
+
   @media (min-width: 768px) {
     .wrap { padding: 5rem 1.5rem; gap: 3.5rem; }
     .profile { flex-direction: row; gap: 3rem; }
     .profile img { max-width: 200px; }
     h1 { font-size: 2.25rem; }
-    h2 { font-size: 1.5rem; }
-  }
-    .profile { flex-direction: row; gap: 3rem; }
-  .profile img {
-    width: auto;
-    height: auto;
-    max-width: 160px;
-    border-radius: 3px;
-    flex-shrink: 0;
-  }
     h2 { font-size: 1.5rem; }
   }
 </style>
@@ -281,7 +301,7 @@
       </li>
     </ul>
 
-    <p class="group">Writing</p>
+    <p class="group">Tech Blog</p>
     <ul class="pubs">
       <li>
         <span class="pub-num">[B1]</span>
