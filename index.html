@@ -141,8 +141,10 @@
   .teaser { flex-shrink: 0; display: block; line-height: 0; text-decoration: none; }
   .teaser img {
     display: block;
-    width: 92px;
+    width: auto;
     height: auto;
+    max-width: 124px;
+    max-height: 130px;
     border: 1px solid var(--rule);
     border-radius: 2px;
     background: #fff;
@@ -203,7 +205,7 @@
     .pubs { gap: 1.2rem; }
 
     .pub-main { flex-direction: column; gap: 0.6rem; }
-    .teaser img { width: 108px; }
+    .teaser img { max-width: 150px; max-height: 150px; }
 
     /* dates sit above the title instead of being squeezed beside it */
     .row { grid-template-columns: 1fr; gap: 0.1rem; }
@@ -287,13 +289,21 @@
       </li>
       <li>
         <span class="pub-num">[C4]</span>
-        <p class="pub-title"><a href="https://arxiv.org/abs/2606.01717">Decentralized Instruction Tuning: Conflict-Aware Splitting and Weight Merging</a></p>
-        <div class="meta">
-          <span>ICML 2026</span>
-          <span class="tag">Main Conference</span>
-          <a class="tag" href="https://clova.ai/tech-blog/%EC%B6%A9%EB%8F%8C%EC%9D%80-%EB%82%98%EB%88%84%EA%B3%A0-%EC%84%B1%EB%8A%A5%EC%9D%80-%ED%95%A9%EC%B9%98%EB%8B%A4-%ED%9A%A8%EC%9C%A8%EC%A0%81%EC%9D%B8-llm-post-training-%EC%A0%84%EB%9E%B5-merit">blog</a>
+        <div class="pub-main">
+          <div class="pub-text">
+            <p class="pub-title"><a href="https://arxiv.org/abs/2606.01717">Decentralized Instruction Tuning: Conflict-Aware Splitting and Weight Merging</a></p>
+            <div class="meta">
+              <span>ICML 2026</span>
+              <span class="tag">Main Conference</span>
+              <a class="tag" href="poster-icml2026-merit.pdf">poster</a>
+              <a class="tag" href="https://clova.ai/tech-blog/%EC%B6%A9%EB%8F%8C%EC%9D%80-%EB%82%98%EB%88%84%EA%B3%A0-%EC%84%B1%EB%8A%A5%EC%9D%80-%ED%95%A9%EC%B9%98%EB%8B%A4-%ED%9A%A8%EC%9C%A8%EC%A0%81%EC%9D%B8-llm-post-training-%EC%A0%84%EB%9E%B5-merit">blog</a>
+            </div>
+            <p class="authors"><span class="me">Minsik Choi</span>*, Geewook Kim*†</p>
+          </div>
+          <a class="teaser" href="poster-icml2026-merit.pdf" aria-label="Conference poster (PDF)">
+            <img src="poster-icml2026-merit.jpg" alt="" loading="lazy" width="420" height="298">
+          </a>
         </div>
-        <p class="authors"><span class="me">Minsik Choi</span>*, Geewook Kim*†</p>
       </li>
     </ul>
 
